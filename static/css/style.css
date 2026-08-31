@@ -1,7 +1,4 @@
-/* ============================================================
-   TAPICERÍA TORRES — estilos.css
-   Paleta muestreada de paleta_de_colores.png
-   ============================================================ */
+
 
 :root {
   /* ---- Paleta base ---- */
@@ -166,10 +163,14 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 60
 }
 
 .nav__logo { display: flex; align-items: center; gap: .6rem; color: var(--color-primary); }
-.nav__logo-icon { width: 34px; height: 34px; }
+.nav__logo-icon { width: auto; height: 46px; color: var(--color-primary); }
 .nav__logo-text { display: flex; flex-direction: column; line-height: 1; font-family: var(--font-display); }
 .nav__logo-text strong { font-size: .78rem; letter-spacing: .08em; font-weight: 700; }
 .nav__logo-text em { font-size: 1.05rem; font-style: normal; font-weight: 600; color: var(--color-accent); }
+
+@media (max-width: 480px) {
+  .nav__logo-icon { height: 38px; }
+}
 
 .nav__toggle {
   display: none; flex-direction: column; gap: 5px;
@@ -496,6 +497,128 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 60
 }
 
 /* ============================================================
+   IMÁGENES CDN — hero, cards, avatares
+   ============================================================ */
+.hero__bg-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -1; opacity: .55;
+}
+.hero__bg::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(14,59,67,.92) 0%, rgba(8,40,48,.88) 55%, rgba(7,30,36,.95) 100%);
+}
+
+.hero__slogan {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  color: var(--color-bg-alt);
+  margin-bottom: 1.25rem;
+  max-width: 40ch;
+}
+
+.card__photo {
+  width: 100%; aspect-ratio: 16/10; object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+}
+
+.about-article__photo {
+  width: 100%; aspect-ratio: 16/9; object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.5rem;
+}
+
+.quote-card__avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  object-fit: cover; margin-bottom: 1rem;
+  border: 2px solid var(--color-bg-alt);
+}
+
+/* ============================================================
+   MODALES — login / registro (vanilla JS)
+   ============================================================ */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+  background: rgba(10,30,35,.6);
+  backdrop-filter: blur(4px);
+  opacity: 0; visibility: hidden;
+  transition: opacity .25s var(--ease), visibility .25s var(--ease);
+}
+.modal-overlay.is-open { opacity: 1; visibility: visible; }
+
+.modal {
+  position: relative;
+  width: min(100%, 440px);
+  max-height: 90vh; overflow-y: auto;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 2.5rem 2.25rem 2.25rem;
+  box-shadow: 0 30px 60px -20px rgba(7,30,36,.5);
+  transform: translateY(16px) scale(.98);
+  transition: transform .3s var(--ease);
+}
+.modal-overlay.is-open .modal { transform: translateY(0) scale(1); }
+
+.modal__close {
+  position: absolute; top: 1rem; right: 1rem;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1.4rem; line-height: 1; color: var(--color-text-muted);
+  background: var(--color-bg-alt-soft);
+  transition: background .2s var(--ease), color .2s var(--ease);
+}
+.modal__close:hover { background: var(--color-accent); color: var(--color-text-light); }
+
+.modal__title { font-size: 1.6rem; margin-bottom: .4rem; }
+.modal__lead { color: var(--color-text-muted); font-size: .92rem; margin-bottom: 1.75rem; }
+
+/* ---- Formularios ---- */
+.form { display: grid; gap: 1.1rem; }
+.form__field { display: grid; gap: .4rem; font-size: .85rem; font-weight: 600; }
+.form__field input {
+  font: inherit; font-size: .95rem;
+  padding: .75rem .9rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.form__field input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(101,83,47,.15);
+}
+
+.form__row { display: flex; align-items: center; justify-content: space-between; font-size: .85rem; }
+.form__checkbox { display: flex; align-items: center; gap: .5rem; font-size: .85rem; font-weight: 500; }
+.form__checkbox input { accent-color: var(--color-accent); }
+
+.form__link {
+  color: var(--color-secondary-600); font-weight: 700; font-size: .85rem;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+
+.form__submit { width: 100%; margin-top: .5rem; }
+.form__switch { text-align: center; font-size: .87rem; color: var(--color-text-muted); }
+
+.form__success {
+  display: none;
+  background: var(--color-bg-alt-soft);
+  border: 1px solid var(--color-secondary-300);
+  color: var(--color-secondary-600);
+  border-radius: var(--radius-sm);
+  padding: .85rem 1rem;
+  font-size: .87rem;
+  font-weight: 600;
+}
+.form.is-submitted .form__success { display: block; }
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -503,4 +626,5 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 60
   .reveal { opacity: 1; transform: none; transition: none; }
   .stitch__line { transition: none; stroke-dashoffset: 0; }
   .card:hover, .btn:hover { transform: none; }
+  .modal-overlay, .modal { transition: none; }
 }
