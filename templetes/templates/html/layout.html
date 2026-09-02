@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santana's Upholstery — Tapicería automotriz </title>
+    <meta name="description" content="Santana's Upholstery: tapicería automotriz en piel, restauración de clásicos y venta de piel al mayoreo/menudeo en Guadalajara, Jal.">
+    <meta property="og:title" content="Santana's Upholstery — Cosemos confort sobre ruedas">
+    <meta property="og:description" content="Tapicería automotriz en piel, restauración de clásicos y diseño de interiores a la medida en Guadalajara.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/estilos .css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/all.min.css">
+
+</head>
+
+<body>
+
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- =================== NAV =================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a class="nav__logo" href="#inicio" aria-label="Santana's Upholstery, inicio">
+                <!-- Logo SVG: asiento formando una "S" + costura -->
+                <svg viewBox="0 0 240 64" class="nav__logo-icon" role="img" aria-hidden="true">
+        <path d="M40 8 C20 8 10 17 10 29 C10 40 21 43 34 45 C47 47 56 51 56 61"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14 20 C 23 15, 38 15, 47 22" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"/>
+        <path d="M18 54 C 27 60, 40 60, 49 54" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"/>
+        <circle cx="10" cy="29" r="2.6" fill="var(--color-secondary)"/>
+        <circle cx="56" cy="61" r="2.6" fill="var(--color-secondary)"/>
+        <text x="72" y="30" font-family="Fraunces, serif" font-weight="700" font-size="19" fill="currentColor">SANTANA'S</text>
+        <text x="72" y="49" font-family="'Space Mono', monospace" font-weight="700" font-size="11" letter-spacing="3" fill="var(--color-accent)">UPHOLSTERY</text>
+      </svg>
+            </a>
+
+            <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+            <div class="nav__menu" id="navMenu">
+                <ul class="nav__links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#venta-piel">Venta de Piel</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="nav__auth">
+                    <button type="button" class="nav__login" data-modal-open="modal-login">Iniciar sesión</button>
+                    <button type="button" class="btn btn--accent btn--sm" data-modal-open="modal-register">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido">
+
+        <!-- =================== HERO =================== -->
+        <section class="hero" id="inicio">
+            <div class="hero__bg" aria-hidden="true">
+                <img class="hero__bg-img" src="https://picsum.photos/seed/santanas-hero/1600/1000" alt="" loading="eager">
+            </div>
+            <div class="hero__inner">
+                <p class="eyebrow reveal">
+                    <span class="eyebrow__dot"></span> Tapicería automotriz de autor
+                </p>
+                <h1 class="hero__title reveal">
+                    Vestimos tu interior<br> con alma <span class="accent-text">de taller.</span>
+                </h1>
+                <p class="hero__slogan reveal">"Cosemos confort sobre ruedas, puntada por puntada."</p>
+                <p class="hero__subtitle reveal">
+                    Tapicería en piel, restauración de clásicos y venta de piel automotriz al mayoreo y menudeo en Guadalajara.
+                </p>
+                <div class="hero__cta reveal">
+                    <a href="#contacto" class="btn btn--accent">Agendar cita</a>
+                    <a href="#servicios" class="btn btn--outline">Explorar servicios</a>
+                </div>
+            </div>
+
+            <svg class="stitch stitch--hero" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+      <line class="stitch__line" x1="0" y1="20" x2="1200" y2="20" />
+    </svg>
+        </section>
+
+        <!-- =================== SERVICIOS =================== -->
+        <section class="section" id="servicios">
+            <div class="container">
+                <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Lo que hacemos</p>
+                <h2 class="section__title reveal">Servicios de talabartería fina</h2>
+                <p class="section__lead reveal">
+                    Cada trabajo se corta, cose y ajusta a mano, con los patrones exactos de tu vehículo.
+                </p>
+
+                <div class="cards-grid">
+                    <article class="card reveal">
+                        <img class="card__photo" src="https://picsum.photos/seed/santanas-01/400/260" alt="Detalle de costura en tapicería de piel automotriz" loading="lazy">
+                        <div class="card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 13l1.5-4.5A2 2 0 0 1 6.4 7h11.2a2 2 0 0 1 1.9 1.5L21 13v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="1.4"/><circle cx="17" cy="16" r="1.4"/></svg>
+                        </div>
+                        <h3>Tapicería en Piel</h3>
+                        <p>Transformamos asientos desgastados en obras de arte de confort, utilizando pieles genuinas y automotrices con cortes precisos.</p>
+                    </article>
+
+                    <article class="card reveal">
+                        <img class="card__photo" src="https://picsum.photos/seed/santanas-02/400/260" alt="Volante forrado en piel con costura deportiva" loading="lazy">
+                        <div class="card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg>
+                        </div>
+                        <h3>Volantes y Tableros</h3>
+                        <p>Forrado artesanal a mano. Costura cruzada y deportiva para recuperar el agarre perfecto y la estética original de agencia.</p>
+                    </article>
+
+                    <article class="card reveal">
+                        <img class="card__photo" src="https://picsum.photos/seed/santanas-03/400/260" alt="Interior restaurado de auto clásico" loading="lazy">
+                        <div class="card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 10l-5 4.4L17.4 21 12 17.3 6.6 21 8 14.4 3 10l6.6-1.4z"/></svg>
+                        </div>
+                        <h3>Restauración de Clásicos</h3>
+                        <p>Respetamos la historia de tu auto. Buscamos y aplicamos materiales importados con los patrones exactos de la época.</p>
+                    </article>
+
+                    <article class="card reveal">
+                        <img class="card__photo" src="https://picsum.photos/seed/santanas-04/400/260" alt="Asiento con vestidura original reproducida" loading="lazy">
+                        <div class="card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9c.2.7.7 1.2 1.5 1.4H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+                        </div>
+                        <h3>Vestiduras Originales</h3>
+                        <p>Reproducimos el molde original de fábrica milímetro a milímetro. Nadie notará que el asiento fue retapizado.</p>
+                    </article>
+
+                    <article class="card reveal">
+                        <img class="card__photo" src="https://picsum.photos/seed/santanas-05/400/260" alt="Cielo y alfombra automotriz renovados" loading="lazy">
+                        <div class="card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7l8-4 8 4-8 4-8-4z"/><path d="M4 12l8 4 8-4"/><path d="M4 17l8 4 8-4"/></svg>
+                        </div>
+                        <h3>Cielos y Alfombras</h3>
+                        <p>Solución definitiva a cielos caídos y alfombras manchadas. Eliminamos ruidos interiores y malos olores de raíz.</p>
+                    </article>
+
+                    <article class="card reveal">
+                        <img class="card__photo" src="https://picsum.photos/seed/santanas-06/400/260" alt="Interior automotriz con diseño personalizado bitono" loading="lazy">
+                        <div class="card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="1.5"/></svg>
+                        </div>
+                        <h3>Diseño Personalizado</h3>
+                        <p>Interiores bitono, grabados láser, bordados o costuras de contraste. Tú lo imaginas, nosotros lo materializamos.</p>
+                    </article>
+                </div>
+            </div>
+
+            <svg class="stitch" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+      <line class="stitch__line" x1="0" y1="20" x2="1200" y2="20" />
+    </svg>
+        </section>
+
+        <!-- =================== NOSOTROS =================== -->
+        <section class="section section--alt" id="nosotros">
+            <div class="container about-grid">
+                <article class="about-article reveal">
+                    <p class="eyebrow"><span class="eyebrow__dot"></span> Nuestra historia</p>
+                    <h2 class="section__title">Tres generaciones cosiendo piel</h2>
+                    <img class="about-article__photo" src="https://picsum.photos/seed/santanas-taller/700/420" alt="Taller de tapicería Santana's Upholstery" loading="lazy">
+                    <p>
+                        En 1974, Don Rafael Santana abrió una pequeña banca de trabajo en Jardines de la Cruz con una máquina de coser y un rollo de piel. Lo que empezó reparando asientos de taxis del centro de Guadalajara se convirtió, con los años, en el taller de referencia
+                        para coleccionistas y restauradores de autos clásicos en Jalisco.
+                    </p>
+                    <p>
+                        Hoy sus hijos y nietos siguen usando las mismas herramientas de talabartero junto con maquinaria industrial moderna, combinando precisión artesanal con acabados de nivel agencia. Cada asiento que sale del taller lleva el mismo cuidado que el primero.
+                    </p>
+                    <a href="#contacto" class="link-arrow">Conoce al equipo →</a>
+                </article>
+
+                <aside class="stats-card reveal" aria-label="Datos del taller">
+                    <p class="stats-card__label">Ficha del taller</p>
+                    <ul class="stats-card__list">
+                        <li>
+                            <span class="stats-card__number" data-count="50" data-suffix="+">0</span>
+                            <span class="stats-card__text">Años de trayectoria</span>
+                        </li>
+                        <li>
+                            <span class="stats-card__number" data-count="3200" data-suffix="+">0</span>
+                            <span class="stats-card__text">Autos restaurados</span>
+                        </li>
+                        <li>
+                            <span class="stats-card__number" data-count="12">0</span>
+                            <span class="stats-card__text">Maestros talabarteros</span>
+                        </li>
+                        <li>
+                            <span class="stats-card__number" data-count="2" data-suffix=" años">0</span>
+                            <span class="stats-card__text">De garantía por escrito</span>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <!-- =================== VENTA DE PIEL =================== -->
+        <section class="section" id="venta-piel">
+            <div class="container">
+                <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Mayoreo y menudeo</p>
+                <h2 class="section__title reveal">Piel automotriz por metro o por rollo</h2>
+                <p class="section__lead reveal">
+                    Vendemos piel genuina y automotriz de importación para tapiceros, talleres y particulares. Estos son algunos de los tonos disponibles en piso.
+                </p>
+
+                <div class="swatch-grid">
+                    <div class="swatch reveal" style="--sw:#312509;">
+                        <span class="swatch__chip"></span>
+                        <span class="swatch__name">Café Habano</span>
+                        <span class="swatch__code">SU-0912</span>
+                    </div>
+                    <div class="swatch reveal" style="--sw:#65532F;">
+                        <span class="swatch__chip"></span>
+                        <span class="swatch__name">Cuero Curtido</span>
+                        <span class="swatch__code">SU-0654</span>
+                    </div>
+                    <div class="swatch reveal" style="--sw:#0E3B43;">
+                        <span class="swatch__chip"></span>
+                        <span class="swatch__name">Petróleo</span>
+                        <span class="swatch__code">SU-0114</span>
+                    </div>
+                    <div class="swatch reveal" style="--sw:#357266;">
+                        <span class="swatch__chip"></span>
+                        <span class="swatch__name">Verde Taller</span>
+                        <span class="swatch__code">SU-0577</span>
+                    </div>
+                    <div class="swatch reveal" style="--sw:#A3BBAD;">
+                        <span class="swatch__chip"></span>
+                        <span class="swatch__name">Salvia</span>
+                        <span class="swatch__code">SU-0281</span>
+                    </div>
+                    <div class="swatch reveal" style="--sw:#1A1410;">
+                        <span class="swatch__chip"></span>
+                        <span class="swatch__name">Negro Ébano</span>
+                        <span class="swatch__code">SU-0001</span>
+                    </div>
+                </div>
+            </div>
+
+            <svg class="stitch" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+      <line class="stitch__line" x1="0" y1="20" x2="1200" y2="20" />
+    </svg>
+        </section>
+
+        <!-- =================== TESTIMONIOS =================== -->
+        <section class="section section--alt" id="testimonios">
+            <div class="container">
+                <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Clientes</p>
+                <h2 class="section__title reveal">Lo que dicen de nosotros</h2>
+
+                <div class="cards-grid cards-grid--testimonials">
+                    <blockquote class="quote-card reveal">
+                        <img class="quote-card__avatar" src="https://picsum.photos/seed/cliente-hector/80/80" alt="" loading="lazy">
+                        <p>"Restauraron los asientos de mi Valiant 68 con la piel original de época. No se nota que es nuevo."</p>
+                        <cite>— Héctor R., coleccionista</cite>
+                    </blockquote>
+                    <blockquote class="quote-card reveal">
+                        <img class="quote-card__avatar" src="https://picsum.photos/seed/cliente-flotillas/80/80" alt="" loading="lazy">
+                        <p>"Le hicimos el interior completo a la camioneta de trabajo. Un año después sigue como el primer día."</p>
+                        <cite>— Flotillas del Bajío</cite>
+                    </blockquote>
+                    <blockquote class="quote-card reveal">
+                        <img class="quote-card__avatar" src="https://picsum.photos/seed/cliente-guzman/80/80" alt="" loading="lazy">
+                        <p>"Compro piel al mayoreo para mi taller desde hace años. Siempre buen precio y buen tono."</p>
+                        <cite>— Tapicería Guzmán</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== CTA FINAL =================== -->
+        <section class="cta-final" id="contacto">
+            <div class="container cta-final__inner">
+                <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Hablemos de tu proyecto</p>
+                <h2 class="reveal">¿Listo para vestir tu interior como se merece?</h2>
+                <p class="reveal">Agenda una valoración sin costo. Te decimos qué necesita tu vehículo antes de cobrarte un peso.</p>
+                <div class="hero__cta reveal">
+                    <a href="tel:3325749452" class="btn btn--accent">Llamar al taller</a>
+                    <a href="#" class="btn btn--outline btn--light">Escribir por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =================== FOOTER =================== -->
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__brand">
+                <a class="nav__logo nav__logo--footer" href="#inicio" aria-label="Santana's Upholstery, inicio">
+                    <svg viewBox="0 0 240 64" class="nav__logo-icon" role="img" aria-hidden="true">
+          <path d="M40 8 C20 8 10 17 10 29 C10 40 21 43 34 45 C47 47 56 51 56 61"
+                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="29" r="2.6" fill="currentColor"/>
+          <circle cx="56" cy="61" r="2.6" fill="currentColor"/>
+          <text x="72" y="30" font-family="Fraunces, serif" font-weight="700" font-size="19" fill="currentColor">SANTANA'S</text>
+          <text x="72" y="49" font-family="'Space Mono', monospace" font-weight="700" font-size="11" letter-spacing="3" fill="currentColor">UPHOLSTERY</text>
+        </svg>
+                </a>
+                <p>La tapicería automotriz de mayor tradición en Jalisco. Cuidamos cada detalle de tu vehículo como si fuera nuestro.</p>
+                <div class="footer__social">
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.2-1.5 1.6-1.5H16V5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.7 1.4-3.7 3.9V11H7.5v3H10v8z"/></svg>
+                    </a>
+                    <a href="#" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5.1a6.6 6.6 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.6c-.1-.2 0-.4.1-.5l.4-.4.2-.4a.5.5 0 0 0 0-.4c-.1-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.3 3.3 0 0 0 1.5 0 2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c-.1-.1-.2-.2-.5-.3z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <nav class="footer__links" aria-label="Enlaces">
+                <p class="footer__heading">Enlaces</p>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Nuestros Servicios</a></li>
+                    <li><a href="#venta-piel">Venta al Mayoreo/Menudeo</a></li>
+                    <li><a href="#">Dejar Reseña en Google</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer__contact">
+                <p class="footer__heading">Contacto</p>
+                <p>C. Isla Bermudas 3022, Jardines de la Cruz,<br>44950 Guadalajara, Jal.</p>
+                <p><a href="tel:3325749452">33 2574 9452</a></p>
+                <p>Lunes a Viernes: 9:30 AM – 8:30 PM<br>Sábados: 9:00 AM – 4:00 PM</p>
+            </div>
+        </div>
+
+        <div class="container footer__bottom">
+            <p>© 2026 Santana's Upholstery. Todos los derechos reservados. Diseñado con excelencia.</p>
+        </div>
+    </footer>
+
+    <!-- =================== MODAL: INICIAR SESIÓN =================== -->
+    <div class="modal-overlay" id="modal-login" data-modal aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-login-title">
+            <button type="button" class="modal__close" data-modal-close aria-label="Cerrar">&times;</button>
+            <p class="eyebrow"><span class="eyebrow__dot"></span> Clientes</p>
+            <h2 id="modal-login-title" class="modal__title">Iniciar sesión</h2>
+            <p class="modal__lead">Consulta el estatus de tu proyecto o tu cotización.</p>
+
+            <form class="form" data-demo-form novalidate>
+                <label class="form__field">
+        <span>Correo electrónico</span>
+        <input type="email" name="email" required autocomplete="email" placeholder="tu@correo.com">
+      </label>
+                <label class="form__field">
+        <span>Contraseña</span>
+        <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••">
+      </label>
+                <div class="form__row">
+                    <label class="form__checkbox">
+          <input type="checkbox" name="remember"> Recordarme
+        </label>
+                    <a href="#" class="form__link">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn btn--accent form__submit">Entrar</button>
+                <p class="form__switch">¿No tienes cuenta? <button type="button" class="form__link" data-modal-switch="modal-register">Regístrate</button></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: REGISTRARSE =================== -->
+    <div class="modal-overlay" id="modal-register" data-modal aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-register-title">
+            <button type="button" class="modal__close" data-modal-close aria-label="Cerrar">&times;</button>
+            <p class="eyebrow"><span class="eyebrow__dot"></span> Nuevo cliente</p>
+            <h2 id="modal-register-title" class="modal__title">Crear cuenta</h2>
+            <p class="modal__lead">Regístrate para agendar citas y dar seguimiento a tu proyecto.</p>
+
+            <form class="form" data-demo-form novalidate>
+                <label class="form__field">
+        <span>Nombre completo</span>
+        <input type="text" name="name" required autocomplete="name" placeholder="Tu nombre">
+      </label>
+                <label class="form__field">
+        <span>Correo electrónico</span>
+        <input type="email" name="email" required autocomplete="email" placeholder="tu@correo.com">
+      </label>
+                <label class="form__field">
+        <span>Teléfono</span>
+        <input type="tel" name="phone" autocomplete="tel" placeholder="33 0000 0000">
+      </label>
+                <label class="form__field">
+        <span>Contraseña</span>
+        <input type="password" name="password" required autocomplete="new-password" placeholder="Mínimo 8 caracteres">
+      </label>
+                <label class="form__checkbox">
+        <input type="checkbox" name="terms" required> Acepto el aviso de privacidad
+      </label>
+                <button type="submit" class="btn btn--accent form__submit">Crear cuenta</button>
+                <p class="form__switch">¿Ya tienes cuenta? <button type="button" class="form__link" data-modal-switch="modal-login">Inicia sesión</button></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/script.js" defer></script>
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
+    <script src="/js/all.min.js" defer></script>
+</body>
+
+</html>
