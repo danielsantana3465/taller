@@ -550,7 +550,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 60
 }
 .modal-overlay.is-open { opacity: 1; visibility: visible; }
 
-.modal {
+.modal-box {
   position: relative;
   width: min(100%, 440px);
   max-height: 90vh; overflow-y: auto;
@@ -561,7 +561,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 60
   transform: translateY(16px) scale(.98);
   transition: transform .3s var(--ease);
 }
-.modal-overlay.is-open .modal { transform: translateY(0) scale(1); }
+.modal-overlay.is-open .modal-box { transform: translateY(0) scale(1); }
 
 .modal__close {
   position: absolute; top: 1rem; right: 1rem;
@@ -626,5 +626,5 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 60
   .reveal { opacity: 1; transform: none; transition: none; }
   .stitch__line { transition: none; stroke-dashoffset: 0; }
   .card:hover, .btn:hover { transform: none; }
-  .modal-overlay, .modal { transition: none; }
+  .modal-overlay, .modal-box { transition: none; }
 }
