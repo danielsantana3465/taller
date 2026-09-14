@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Santana's Upholstery — Tapicería automotriz {%endblock%} </title>
+    <meta name="description" content="Santana's Upholstery: tapicería automotriz especializada en  restauración y personalización de clásicos, embarcaciones, muebles y relleno de cojines en Santa Fe Springs, CA. ">
+    <meta property="og:title" content="Santana's Upholstery — Cosemos confort sobre ruedas">
+    <meta property="og:description" content="Tapicería automotriz en piel, restauración de clásicos y diseño de interiores a la medida en Guadalajara.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+   
+    {% include 'components/navbar.html' %}
+
+    <main id="contenido">
+        {% block contenido %}{% endblock %}
+    </main>
+
+    {% include 'components/footer.html' %}
+
+    <!-- =================== MODAL: INICIAR SESIÓN =================== -->
+    <div class="modal-overlay" id="modal-login" data-modal aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-login-title">
+            <button type="button" class="modal__close" data-modal-close aria-label="Cerrar">&times;</button>
+            <p class="eyebrow"><span class="eyebrow__dot"></span> Clientes</p>
+            <h2 id="modal-login-title" class="modal__title">Iniciar sesión</h2>
+            <p class="modal__lead">Consulta el estatus de tu proyecto o tu cotización.</p>
+
+            <form class="form" data-demo-form novalidate>
+                <label class="form__field">
+        <span>Correo electrónico</span>
+        <input type="email" name="email" required autocomplete="email" placeholder="tu@correo.com">
+      </label>
+                <label class="form__field">
+        <span>Contraseña</span>
+        <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••">
+      </label>
+                <div class="form__row">
+                    <label class="form__checkbox">
+          <input type="checkbox" name="remember"> Recordarme
+        </label>
+                    <a href="#" class="form__link">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn btn--accent form__submit">Entrar</button>
+                <p class="form__switch">¿No tienes cuenta? <button type="button" class="form__link" data-modal-switch="modal-register">Regístrate</button></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: REGISTRARSE =================== -->
+    <div class="modal-overlay" id="modal-register" data-modal aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-register-title">
+            <button type="button" class="modal__close" data-modal-close aria-label="Cerrar">&times;</button>
+            <p class="eyebrow"><span class="eyebrow__dot"></span> Nuevo cliente</p>
+            <h2 id="modal-register-title" class="modal__title">Crear cuenta</h2>
+            <p class="modal__lead">Regístrate para agendar citas y dar seguimiento a tu proyecto.</p>
+
+            <form action="{{url_for('signup')}}" method="post" class="form" data-demo-form novalidate>
+                <label class="form__field">
+<span>Nombre completo</span>
+<input type="text" name="nombre" required autocomplete="name" placeholder="Tu nombre">
+</label>
+                <label class="form__field">
+<span>Correo electrónico</span>
+<input type="email" name="correo" required autocomplete="email" placeholder="tu@correo.com">
+</label>
+                <label class="form__field">
+<span>Teléfono</span>
+<input type="tel" name="telefono" autocomplete="tel" placeholder="33 0000 0000">
+</label>
+                <label class="form__field">
+<span>Contraseña</span>
+<input type="password" name="clave" required autocomplete="new-password" placeholder="Mínimo 8 caracteres">
+</label>
+                <label class="form__checkbox">
+<input type="checkbox" name="terms" required> Acepto el aviso de privacidad
+</label>
+                <button type="submit" class="btn btn--accent form__submit">Crear cuenta</button>
+                <p class="form__switch">¿Ya tienes cuenta? <button type="button" class="form__link" data-modal-switch="modal-login">Inicia sesión</button></p>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script src="/static/js/script.js" defer></script>
+    <script src="/static/js/all.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
