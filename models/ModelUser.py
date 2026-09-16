@@ -20,7 +20,7 @@ class ModelUser():
                 selusuario.execute("SELECT * FROM usuario WHERE id = %s", (id,))
                 u = selusuario.fetchone()
                 if u is not None: 
-                return = User(u[0], u[1], u[2], u[3], u[4])
+                return User(u[0], u[1], u[2], u[3], u[4])
             else:
                 return None
         except Exception as ex:
