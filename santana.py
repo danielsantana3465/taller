@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mysqldb import MySQL
+from flask_login import LoginManager , login_user, login_required, current_user
 from config import config
 from werkzeug.security import generate_password_hash
 
@@ -10,7 +11,7 @@ db = MySQL(tallerApp)
 
 @tallerApp.route("/")
 def home():
-    return render_template('home.html')
+    return render_template('/home.html')
 
 @tallerApp.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -22,8 +23,10 @@ def signup():
             regUsuario = db.connection.cursor()
             regUsuario.execute("INSERT INTO usuario (nombre, correo, clave) VALUES (%s,%s,%s)", (nombre, correo, claveCifrada))
             db.connection.commit()
+            regUsuario.close()
+            return redirect(url_for('home'))
             
-            
+        
             return render_template('home.html')
         else :
             return render_template('home.html')
