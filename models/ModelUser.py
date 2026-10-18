@@ -12,9 +12,9 @@ class ModelUser():
             else:
                 return None
         except Exception as ex:
-            raise Exception(ex)
-        @classmethod
-        def get_by_id (self, db, id):
+            raise Exception(ex) 
+    @classmethod
+    def get_by_id (self, db, id):
             try:
                 selusuario = db.connection.cursor()
                 selusuario.execute("SELECT * FROM usuario WHERE id = %s", (id,))

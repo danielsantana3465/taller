@@ -4,7 +4,7 @@ from flask_mysqldb import MySQL
 from flask_login import LoginManager , login_user, login_required, current_user
 from config import config
 from werkzeug.security import generate_password_hash
-from models import ModelUser
+from models.ModelUser import ModelUser
 
 tallerApp = Flask(__name__)
 tallerApp.config.from_object(config['Development'])
@@ -31,7 +31,7 @@ def signup():
             regUsuario.execute("INSERT INTO usuario (nombre, correo, clave) VALUES (%s,%s,%s)", (nombre, correo, claveCifrada))
             db.connection.commit()
             regUsuario.close()
-            return redirect(url_for('home'))
+            
             
         
             return render_template('home.html')
