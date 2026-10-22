@@ -59,6 +59,10 @@ def signin():
     else:
         return render_template('home.html')
 
+@tallerApp.route('/sUsuario', methods=['GET', 'POST'])
+@login_required
+def sUsuario():
+    return render_template('users.html')
 
 
 
