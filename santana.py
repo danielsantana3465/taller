@@ -1,7 +1,7 @@
 from flask import Flask, flash, render_template, request, redirect, url_for, flash
 from models.entities.User import User 
 from flask_mysqldb import MySQL
-from flask_login import LoginManager , login_user, login_required, current_user
+from flask_login import LoginManager , login_user, login_required, current_user, logout_user
 from config import config
 from werkzeug.security import generate_password_hash
 from models.ModelUser import ModelUser
@@ -47,9 +47,9 @@ def signin():
             login_user(usuarioAutenticado)
             if usuarioAutenticado.clave:
                 if usuarioAutenticado.perfil == 'A':
-                    return render_template('admin.html')
+                    return redirect(url_for('home_admin'))
                 else:
-                    return render_template('home.html')
+                    return redirect(url_for('home_user'))
             else:
                 flash('Contraseña incorrecta')
                 return redirect(url_for('home'))
@@ -58,6 +58,19 @@ def signin():
             return redirect(url_for('home'))
     else:
         return render_template('home.html')
+
+@tallerApp.route('/signout', methods=['GET', 'POST'])
+def signout():
+    logout_user()
+    return redirect(url_for('home'))
+
+@tallerApp.route('/home_admin', methods=['GET', 'POST'])
+def home_admin():
+    return render_template('admin.html')
+
+@tallerApp.route('/home_user', methods=['GET', 'POST'])
+def home_user():
+    return render_template('User.html')
 
 @tallerApp.route('/sUsuario', methods=['GET', 'POST'])
 @login_required
