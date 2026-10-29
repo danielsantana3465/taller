@@ -41,7 +41,7 @@ def signup():
 @tallerApp.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == 'POST':
-        usuario = User(request.form['nombre'], request.form['correo'], request.form['clave'], None)
+        usuario = User(0, None, request.form['correo'], request.form['clave'], None)
         usuarioAutenticado = ModelUser.signin(db, usuario)
         if usuarioAutenticado is not None:
             login_user(usuarioAutenticado)
