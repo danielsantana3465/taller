@@ -75,7 +75,15 @@ def home_user():
 @tallerApp.route('/sUsuario', methods=['GET', 'POST'])
 @login_required
 def sUsuario():
-    return render_template('users.html')
+    if current_user.perfil == "A":
+        selUsuario = db.connection.cursor()
+        selUsuario.execute("SELECT * FROM usuario")
+        u=selUsuario.fetchall()
+        selUsuario.close()
+        return render_template('users.html', usuarios=u)
+    else:
+        flash('No tienes permisis para acceder a esta página')
+        return redirect(url_for('home'))
 
 
 

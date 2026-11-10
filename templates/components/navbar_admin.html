@@ -29,10 +29,22 @@
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
-                <div class="nav__auth">
-                    <a type="button" > {{current_user.nombre}}
+                <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Operaciones
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{url_for('sUsuario')}}">Usuarios</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+                </ul>
 
-                    </a>
+                
+                <div class="nav__auth">
+                    <a type="button" href="{{_url_for('signin')}}" > {{current_user.nombre}}</a>
                     <a type="button" href="{{ url_for('signout')}}">Cerrar Sesión</a>
                 </div>
             </div>
