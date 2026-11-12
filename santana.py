@@ -31,9 +31,8 @@ def signup():
             regUsuario.execute("INSERT INTO usuario (nombre, correo, clave) VALUES (%s,%s,%s)", (nombre, correo, claveCifrada))
             db.connection.commit()
             regUsuario.close()
+
             
-            
-        
             return render_template('home.html')
         else :
             return render_template('home.html')
@@ -62,11 +61,62 @@ def signin():
 @tallerApp.route('/sUsuario', methods=['GET', 'POST'])
 @login_required
 def sUsuario():
-    return render_template('users.html')
+    if current_user.perfil == 'A':
+        selUsurio = db.connection.cursor()
+        selUsurio.execute("SELECT * FROM usuario")
+        u= selUsurio.fetchall()
+        selUsurio.close()
+        return render_template('users.html')
+    else:
+        flash('No tienes permisos para acceder a esta página')
+        return redirect(url_for('home'))
 
+@tallerApp.route('/iUsuario', methods=['GET', 'POST'])
+@login_required
+def iUsuario():
+        if request.method == 'POST' and current_user.perfil == 'A':
+            nombre = request.form['nombre']
+            correo = request.form['correo']
+            clave = request.form['clave']
+            perfil = request.form['perfil']
+            claveCifrada = generate_password_hash(clave)
+            regUsuario = db.connection.cursor()
+            regUsuario.execute("INSERT INTO usuario (nombre, correo, clave, perfil) VALUES (%s,%s,%s,%s)", (nombre, correo, claveCifrada))
+            db.connection.commit()
+            regUsuario.close()
+            flash('Usuario registrado correctamente')
+            return redirect(url_for('sUsuario'))
+        else:
+            return redirect(url_for('home'))
+        
+@tallerApp.route('/uUsuario/<int:id>', methods=['GET', 'POST'])
+@login_required
+def uUsuario(id):
+        if request.method == 'POST' and current_user.perfil == 'A':
+            nombre = request.form['nombre']
+            correo = request.form['correo']
+            perfil = request.form['perfil']
+            actUsuario = db.connection.cursor()
+            actUsuario.execute("UPDATE usuario SET nombre=%s, correo=%s, perfil=%s WHERE id=%s")
+            db.connection.commit()
+            actUsuario.close()
+            flash("Usuario correctamente actualizado")
+            return redirect(url_for('sUsuario'))
+        else:
+             return redirect(url_for('home'))
 
-
-
+@tallerApp.route('/dUsuario/<int:id>', methods=['GET', 'POST'])
+@login_required
+def dUsuario(id):
+        if request.method == 'POST' and current_user.perfil == 'A':
+            delUsuario = db.connection.cursor()
+            delUsuario.execute("DELETE FROM usuario WHERE id=%s",(id))
+            db.connection.commit()
+            delUsuario.close()
+            flash("Usuario correctamente eliminado")
+            return redirect(url_for('sUsuario'))
+        else:
+             return redirect(url_for('home'))
 
 
 
