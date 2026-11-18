@@ -1,7 +1,7 @@
 from flask import Flask, flash, render_template, request, redirect, url_for, flash
 from models.entities.User import User 
 from flask_mysqldb import MySQL
-from flask_login import LoginManager , login_user, login_required, current_user
+from flask_login import LoginManager , login_user, login_required, current_user, logout_user
 from config import config
 from werkzeug.security import generate_password_hash
 from models.ModelUser import ModelUser
@@ -40,15 +40,15 @@ def signup():
 @tallerApp.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == 'POST':
-        usuario = User(request.form['nombre'], request.form['correo'], request.form['clave'], None)
+        usuario = User(0, None, request.form['correo'], request.form['clave'], None)
         usuarioAutenticado = ModelUser.signin(db, usuario)
         if usuarioAutenticado is not None:
             login_user(usuarioAutenticado)
             if usuarioAutenticado.clave:
                 if usuarioAutenticado.perfil == 'A':
-                    return render_template('admin.html')
+                    return redirect(url_for('home_admin'))
                 else:
-                    return render_template('home.html')
+                    return redirect(url_for('home_user'))
             else:
                 flash('Contraseña incorrecta')
                 return redirect(url_for('home'))
@@ -58,9 +58,23 @@ def signin():
     else:
         return render_template('home.html')
 
+@tallerApp.route('/signout', methods=['GET', 'POST'])
+def signout():
+    logout_user()
+    return redirect(url_for('home'))
+
+@tallerApp.route('/home_admin', methods=['GET', 'POST'])
+def home_admin():
+    return render_template('admin.html')
+
+@tallerApp.route('/home_user', methods=['GET', 'POST'])
+def home_user():
+    return render_template('User.html')
+
 @tallerApp.route('/sUsuario', methods=['GET', 'POST'])
 @login_required
 def sUsuario():
+<<<<<<< HEAD
     if current_user.perfil == 'A':
         selUsurio = db.connection.cursor()
         selUsurio.execute("SELECT * FROM usuario")
@@ -70,6 +84,19 @@ def sUsuario():
     else:
         flash('No tienes permisos para acceder a esta página')
         return redirect(url_for('home'))
+=======
+    if current_user.perfil == "A":
+        selUsuario = db.connection.cursor()
+        selUsuario.execute("SELECT * FROM usuario")
+        u=selUsuario.fetchall()
+        selUsuario.close()
+        return render_template('users.html', usuarios=u)
+    else:
+        flash('No tienes permisis para acceder a esta página')
+        return redirect(url_for('home'))
+
+
+>>>>>>> 7b0a26df46678cece4e725ec34922dddd2ba3c2f
 
 @tallerApp.route('/iUsuario', methods=['GET', 'POST'])
 @login_required
