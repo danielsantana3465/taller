@@ -74,29 +74,15 @@ def home_user():
 @tallerApp.route('/sUsuario', methods=['GET', 'POST'])
 @login_required
 def sUsuario():
-<<<<<<< HEAD
     if current_user.perfil == 'A':
         selUsurio = db.connection.cursor()
         selUsurio.execute("SELECT * FROM usuario")
         u= selUsurio.fetchall()
         selUsurio.close()
-        return render_template('users.html')
+        return render_template('Users.html')
     else:
         flash('No tienes permisos para acceder a esta página')
         return redirect(url_for('home'))
-=======
-    if current_user.perfil == "A":
-        selUsuario = db.connection.cursor()
-        selUsuario.execute("SELECT * FROM usuario")
-        u=selUsuario.fetchall()
-        selUsuario.close()
-        return render_template('users.html', usuarios=u)
-    else:
-        flash('No tienes permisis para acceder a esta página')
-        return redirect(url_for('home'))
-
-
->>>>>>> 7b0a26df46678cece4e725ec34922dddd2ba3c2f
 
 @tallerApp.route('/iUsuario', methods=['GET', 'POST'])
 @login_required

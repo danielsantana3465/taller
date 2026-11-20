@@ -1,6 +1,22 @@
 {% extends "layout.html" %} {% block titulo %}Santana's Upholstery — Tapicería automotriz {%endblock%} {% block contenido %}
 
-<main id="contenido">
+<div class="container">
+ <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for s in servicio %}
+  <div class="col">
+    <div class="card">
+      <img src="/static/img/{{ s[5] }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{s[2]}}</h5>
+        <p class="card-text">{{s[4]}}</p>
+        <h3>${{ "%.2f" | format(s[6])}}</h3>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+ </div>
+</div>
+
 
     <!-- =================== HERO =================== -->
     <section class="hero" id="inicio">
@@ -229,6 +245,6 @@
         </div>
     </section>
 
-</main>
+
 
 {%endblock%}
