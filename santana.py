@@ -16,26 +16,23 @@ def agregarUsuario(id):
     return ModelUser.get_by_id(db, id)
 
 
-@tallerApp.route("/")
+@tallerApp.route('/')
 def home():
     return render_template('/home.html')
 
 @tallerApp.route('/signup', methods=['GET', 'POST'])
 def signup():
-        if request.method == 'POST':
-            nombre = request.form['nombre']
-            correo = request.form['correo']
-            clave = request.form['clave']
-            claveCifrada = generate_password_hash(clave)
-            regUsuario = db.connection.cursor()
-            regUsuario.execute("INSERT INTO usuario (nombre, correo, clave) VALUES (%s,%s,%s)", (nombre, correo, claveCifrada))
-            db.connection.commit()
-            regUsuario.close()
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        correo = request.form['correo']
+        clave   = request.form['clave']
+        claveCifrada = generate_password_hash(clave)
+        regUsuario = db.connection.cursor()
+        regUsuario.execute("INSERT INTO usuario (nombre,correo,clave) VALUES (%s, %s, %s)", (nombre,correo,claveCifrada))
 
-            
-            return render_template('home.html')
-        else :
-            return render_template('home.html')
+        db.connection.commit()
+        regUsuario.close()
+        return redirect(url_for('home'))
 
 @tallerApp.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -69,7 +66,11 @@ def home_admin():
 
 @tallerApp.route('/home_user', methods=['GET', 'POST'])
 def home_user():
-    return render_template('User.html')
+    selServicio = db.connection.cursor()
+    selServicio.execute("SELECT * FROM servicio") 
+    s=selServicio.fetchall()
+    selServicio.close()
+    return render_template('user.html', servicios=s)
 
 @tallerApp.route('/sUsuario', methods=['GET', 'POST'])
 @login_required
@@ -79,7 +80,7 @@ def sUsuario():
         selUsurio.execute("SELECT * FROM usuario")
         u= selUsurio.fetchall()
         selUsurio.close()
-        return render_template('Users.html')
+        return render_template('users.html', usuarios=u)
     else:
         flash('No tienes permisos para acceder a esta página')
         return redirect(url_for('home'))

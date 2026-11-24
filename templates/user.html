@@ -2,14 +2,14 @@
 
 <div class="container">
  <div class="row row-cols-1 row-cols-md-3 g-4">
-    {% for s in servicio %}
+    {% for s in servicios %}
   <div class="col">
     <div class="card">
       <img src="/static/img/{{ s[5] }}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{s[2]}}</h5>
-        <p class="card-text">{{s[4]}}</p>
-        <h3>${{ "%.2f" | format(s[6])}}</h3>
+        <p class="card-text">{{s[3]}}</p>
+        <h3>${{ "%.2f" | format(s[4])}}</h3>
       </div>
     </div>
   </div>
